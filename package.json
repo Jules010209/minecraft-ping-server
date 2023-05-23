@@ -1,0 +1,26 @@
+{
+  "name": "minecraft-ping-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jules010209/minecraft-ping-server.git"
+  },
+  "author": "Jules010209",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jules010209/minecraft-ping-server/issues"
+  },
+  "homepage": "https://github.com/Jules010209/minecraft-ping-server#readme",
+  "dependencies": {
+    "@types/node": "^20.2.3",
+    "net": "^1.0.2"
+  }
+}
