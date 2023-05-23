@@ -28,14 +28,17 @@ export const getStatus = async(address: string, port: number = 25565): Promise<{
         socket.on('data', (data) => {
             if(data == null) return;
 
-            let server = data.toString().split('\x00\x00\x00');
+            let server = data.toString('utf8').split('\x00\x00\x00');
 
             if(server == null || server.length < 6) return resolve({ online: false });
-            
+
+            const motd = server[3].replace(/\u0000/g, '');
+            const formattedMotd = motd.replace(/§[0-9A-FK-OR]/gi, '');
+
             resolve({
                 online: true,
                 version: server[2].replace(/\u0000/g, ''),
-                motd: server[3].replace(/\u0000/g, ''),
+                motd: formattedMotd,
                 onlinePlayers: server[4].replace(/\u0000/g, ''),
                 maxPlayers: server[5].replace(/\u0000/g,'')
             });
